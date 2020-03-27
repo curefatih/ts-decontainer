@@ -1,4 +1,4 @@
-# ts-decorator-creator
+# ts-decontainer
 
 
 Creating decorator factory
