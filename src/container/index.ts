@@ -10,6 +10,8 @@ export default class Container {
     return this.globalInstance[id] = value
   }
 
-  // static add(id: string)
+  static getAll(): any {
+    return this.globalInstance
+  }
 
 }
