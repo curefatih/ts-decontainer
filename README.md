@@ -1,10 +1,36 @@
 # ts-decontainer
 
+Creating class decorator
+
+```js
+import {CreateClassDecorator} from "ts-decontainer";
+export const Controller = CreateClassDecorator("controllers", (value, f) => {
+  return {
+    type: "json",
+    target: f,
+    path: value
+  }
+})
+```
+
+Using class decorator:
+
+```js
+
+@Controller("/user") // "/user" is value prop
+class UserController {
+  // cool things
+}
+
+```
+
+
+____
 
 Creating decorator factory
 
 ```js
-import {CreateDecoratorFactory, Container} from "./ts-decontainer";
+import {CreateDecoratorFactory} from "ts-decontainer";
 
 const Route = CreateDecoratorFactory("routes",
   (value, target, propertyKey, descriptor) => {
@@ -17,7 +43,7 @@ const Route = CreateDecoratorFactory("routes",
   });
 ```
 
-Using this Decorator:
+Using this decorator:
 
 ```js
 
@@ -39,13 +65,28 @@ class A {
 
 }
 
+
 ```
 
-Getting types:
+____
+
+Getting marked globals:
 
 ```js
-Container.get("routes");
+Container.getAll();
+// eg. return
+// {
+//   routes: [
+//      { function: [Function: classMethod] },
+//      { method: 'post', function: [Function: otherClassMethod] }
+//    ],
+//   controllers: [
+//     { type: 'json', target: [Function: UserController], path: '/user' }
+//   ]
+// }
 
+// or specially select
+Container.get("routes")
 // returns:
 // [
 //   { function: [Function: classMethod] },
