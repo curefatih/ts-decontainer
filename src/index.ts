@@ -1,4 +1,5 @@
 import IDecoratorFactory from "interfaces/IDecoratorFactory";
+import IClassDecorator from "interfaces/IClassDecorator";
 import Container from "./container";
 
 export function CreateDecoratorFactory(type: string, cb: IDecoratorFactory) {
@@ -11,5 +12,13 @@ export function CreateDecoratorFactory(type: string, cb: IDecoratorFactory) {
   }
 }
 
-export { Container, IDecoratorFactory }
+export function CreateClassDecorator(type: string, cb: IClassDecorator) {
+  Container.set(type, [])
+  return function (value?: any) {
+    return function (object: Function) {
+      Container.get(type).push(cb(value, object));
+    };
+  }
+}
+export { Container, IDecoratorFactory, IClassDecorator }
 
