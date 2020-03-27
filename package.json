@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Creates ts decorator and grabs all same type decorator outputs",
   "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
     "dev": "nodemon --watch ./src/**/*.ts --exec ts-node ./src/index.ts",
     "start": "ts-node dist/server.js",
