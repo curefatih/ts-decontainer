@@ -4,7 +4,7 @@
 Creating decorator factory
 
 ```js
-import {CreateDecoratorFactory, Container} from "./ts-decorator-creator";
+import {CreateDecoratorFactory, Container} from "./ts-decontainer";
 
 const Route = CreateDecoratorFactory("routes",
   (value, target, propertyKey, descriptor) => {
