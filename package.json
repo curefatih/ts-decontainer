@@ -1,12 +1,12 @@
 {
-  "name": "filter-all",
+  "name": "ts-decontainer",
   "version": "1.0.0",
-  "description": "filtering with ts decorator and gives a object for you",
-  "main": "dist/index.js",
+  "description": "Creates ts decorator and grabs all same type decorator outputs",
+  "main": "build/index.js",
   "scripts": {
     "dev": "nodemon --watch ./src/**/*.ts --exec ts-node ./src/index.ts",
     "start": "ts-node dist/server.js",
-    "build": "tsc -p .",
+    "build": "tsc",
     "prepare": "npm run build",
     "postversion": "git push && git push --tags"
   },
