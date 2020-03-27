@@ -1,8 +1,12 @@
 {
   "name": "ts-decontainer",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Creates ts decorator and grabs all same type decorator outputs",
   "main": "build/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/curefatih/ts-decontainer"
+  },
   "types": "build/index.d.ts",
   "scripts": {
     "dev": "nodemon --watch ./src/**/*.ts --exec ts-node ./src/index.ts",
